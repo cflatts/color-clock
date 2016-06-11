@@ -44,25 +44,23 @@ var currentTimeAndColor = function() {
 
     // COLOR CLOCK
 
-    var hexHourInner =  currentHour.toString(16)
-    var hexMinuteInner = currentMinute.toString(16)
-    var hexSecondInner = currentSecond.toString(16)
+    var hourNumber = parseInt(currentHour) + 150
+    var minuteNumber = parseInt(currentMinute) + 150
+    var secondNumber = parseInt(currentSecond) + 150
+
+
+    var hexHourInner = hourNumber.toString(16)
+    var hexMinuteInner = minuteNumber.toString(16)
+    var hexSecondInner = secondNumber.toString(16)
     redNode.innerHTML = hexHourInner + ':'
     greenNode.innerHTML = hexMinuteInner + ':'
     blueNode.innerHTML = hexSecondInner
 
     // OUTER GRADIENT
 
-    var hourNumber = parseInt(currentHour) + 150
-    var minuteNumber = parseInt(currentMinute) + 150
-    var secondNumber = parseInt(currentSecond) + 150
-
-
-    var hexHourOuter = hourNumber.toString(16)
-    var hexMinuteOuter = minuteNumber.toString(16)
-    var hexSecondOuter = secondNumber.toString(16)
-
-    // console.log(hexHourOuter)
+    var hexHourOuter =  currentHour.toString(16)
+    var hexMinuteOuter = currentMinute.toString(16)
+    var hexSecondOuter = currentSecond.toString(16)
 
 
     // BACKGROUND COLOR
@@ -72,7 +70,7 @@ var currentTimeAndColor = function() {
     var outerBackgroundColor = '#' + hexHourOuter + hexMinuteOuter + hexSecondOuter
 
 
-    backgroundNode.style.background = 'radial-gradient(circle, ' + outerBackgroundColor + ' , ' + innerBackgroundColor + ')'
+    backgroundNode.style.background = 'radial-gradient(circle, ' + innerBackgroundColor + ' , ' + outerBackgroundColor + ')'
 
 }
 

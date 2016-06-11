@@ -1,0 +1,47 @@
+/* BACKGROUND */
+
+#clockBody {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    /*background: radial-gradient(circle, #FFFFFF, #000000);*/
+}
+
+/* CLOCK AND HEX COLOR DISPLAY */
+
+.timeOrColor {
+    font-size: 96px;
+    font-family:'Raleway', sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.clockParts {
+    display: inline-block;
+}
+
+.colorParts {
+    display: inline-block
+}
+
+#clock {
+    opacity: 1;
+    z-index: 1;
+}
+
+
+#hexColor {
+    opacity: 0;
+}
+
+/* HOVER EFFECTS */
+
+#clock:hover {
+    opacity: 0;
+}
+
+#clock:hover + #hexColor {
+    opacity: 1;
+}

@@ -22,6 +22,8 @@ var currentTimeAndColor = function() {
     var currentMinute = d.getMinutes()
     var currentSecond = d.getSeconds()
 
+    console.log(currentHour)
+
     if(currentHour > 12) {
         currentHour = currentHour - 12
     }
@@ -44,23 +46,32 @@ var currentTimeAndColor = function() {
 
     // COLOR CLOCK
 
-    var hourNumber = parseInt(currentHour) + 150
-    var minuteNumber = parseInt(currentMinute) + 150
-    var secondNumber = parseInt(currentSecond) + 150
+    var innerHourNumber = parseInt(currentHour) + 150
+    var innerMinuteNumber = parseInt(currentMinute) + 150
+    var innerSecondNumber = parseInt(currentSecond) + 150
+
+    //INNER GRADIENT
+
+    var hexHourInner = innerHourNumber.toString(16)
+    var hexMinuteInner = innerMinuteNumber.toString(16)
+    var hexSecondInner = innerSecondNumber.toString(16)
 
 
-    var hexHourInner = hourNumber.toString(16)
-    var hexMinuteInner = minuteNumber.toString(16)
-    var hexSecondInner = secondNumber.toString(16)
     redNode.innerHTML = hexHourInner + ':'
     greenNode.innerHTML = hexMinuteInner + ':'
     blueNode.innerHTML = hexSecondInner
 
     // OUTER GRADIENT
 
-    var hexHourOuter =  currentHour.toString(16)
-    var hexMinuteOuter = currentMinute.toString(16)
-    var hexSecondOuter = currentSecond.toString(16)
+    var outerHourNumber = parseInt(currentHour) + 25
+    var outerMinuteNumber = parseInt(currentMinute) + 25
+    var outerSecondNumber = parseInt(currentSecond) + 25
+
+    var hexHourOuter =  outerHourNumber.toString(16)
+    var hexMinuteOuter = outerMinuteNumber.toString(16)
+    var hexSecondOuter = outerSecondNumber.toString(16)
+
+
 
 
     // BACKGROUND COLOR
@@ -69,9 +80,15 @@ var currentTimeAndColor = function() {
     var innerBackgroundColor = '#' + hexHourInner + hexMinuteInner + hexSecondInner
     var outerBackgroundColor = '#' + hexHourOuter + hexMinuteOuter + hexSecondOuter
 
+    console.log(innerBackgroundColor)
+    console.log(outerBackgroundColor)
 
-    backgroundNode.style.background = 'radial-gradient(circle, ' + innerBackgroundColor + ' , ' + outerBackgroundColor + ')'
+    backgroundNode.style.background = 'radial-gradient(circle, ' + innerBackgroundColor + ' ,' + outerBackgroundColor + ')'
+
+
 
 }
 
 window.setInterval(currentTimeAndColor, 1000)
+
+//why am i only getting 5 characters for my outer hex color? (hex hour outer is return only 1 value instead of 2)

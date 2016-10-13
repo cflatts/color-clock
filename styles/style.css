@@ -1,10 +1,22 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    background-size: 100%;
+}
+
+body {
+    …
+    width: 100%;
+    height: 100%;
+    background-attachment: fixed;
+}
+
 /* BACKGROUND */
 
 #clockBody {
     width: 100%;
     height: 100vh;
     position: relative;
-    /*background: radial-gradient(circle, #FFFFFF, #000000);*/
 }
 
 /* CLOCK AND HEX COLOR DISPLAY */
